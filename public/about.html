@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Us</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="teach.html">Teach With Us</a></li>
+        <li><a href="plans.html">Plans and Subscription</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contactform.html">Contact Us</a></li></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Learn More About Our Application</h2>
+      <p>
+        Find out more about our mission, team, and the goals of our educational
+        application.
+      </p>
+      <!-- Include the contact form here -->
+      <div class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-form-wrapper">
+          <form
+            class="contact-form"
+            enctype="multipart/form-data"
+            action="/"
+            method="POST"
+          >
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="contactno">Contact No.</label>
+            <input type="tel" id="tel" name="contactno" required />
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <label for="attachment" class="upload-label">Attachment</label>
+            <div class="upload-container">
+              <input type="file" id="attachment" name="attachment" class="upload-input" />
+            </div>
+            
+
+            <label for="agree">I agree to the terms and conditions</label>
+            <input type="checkbox" id="agree" name="agree" required />
+
+            <input type="hidden" id="pageName" name="pageName" value="About Us">
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2023 Educational Application. All rights reserved.</p>
+    </footer>
+    <script src="js/app.js"></script>
+  </body>
+</html>

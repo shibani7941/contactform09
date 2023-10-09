@@ -1,0 +1,115 @@
+/* Contact Form Styles */
+.contact-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 10px;
+  color: #333;
+  font-size: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-form textarea {
+  height: 120px;
+}
+
+.contact-form button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.contact-form button:hover {
+  background-color: #555;
+}
+
+.contact-form .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-form .form-label {
+  flex-basis: 30%;
+  color: #333;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.contact-form .form-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-form .form-checkbox {
+  flex-basis: 100%;
+  margin-top: 10px;
+}
+
+.success-message {
+  color: #0f9d58;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.brochure {
+  border: 1px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.download-button {
+  display: block;
+  margin-top: 10px;
+}
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-accept,
+.btn-deny {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-accept {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+}
+
+.btn-deny {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+}
+
+.btn-accept:focus,
+.btn-deny:focus {
+  outline: none;
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/test.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Testing</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!-- brochure 1-->
+        <div class="col-3">
+          <div class="brochure">
+            <div
+              class="blog-img"
+              style="cursor: pointer;"
+              onclick="selectBrochureLink('https://scalableai.com/scalable_brochure/Scalable_Hadoop_Solution_Brochure.pdf')"
+            >
+              <img
+                src="http://123.63.97.202:81/scalableai/assets/images/Scalable-Hadoop.png"
+                alt=""
+                style="width: 100%"
+              />
+            </div>
+            <h5>
+              Scalable Hadoop
+              <span class="break">Solution.</span>
+            </h5>
+          </div>
+        </div>
+        <!-- brochure 2-->
+        <div class="col-3">
+          <div class="brochure">
+            <div
+              class="blog-img"
+              style="cursor: pointer;"
+              onclick="selectBrochureLink('https://scalableai.com/scalable_brochure/Scalable_Data_Analytics_brochure.pdf')"
+            >
+              <img
+                src="http://123.63.97.202:81/scalableai/assets/images/Scalable-Hadoop.png"
+                alt=""
+                style="width: 100%"
+              />
+            </div>
+            <h5>
+              Scalable Data Analytics
+              <span class="break">Solution.</span>
+            </h5>
+          </div>
+        </div>
+        <!-- brochure 3-->
+        <div class="col-3">
+          <div class="brochure">
+            <div
+              class="blog-img"
+              style="cursor: pointer;"
+              onclick="selectBrochureLink('https://scalableai.com/scalable_brochure/Scalable_Hadoop_Solution_Brochure.pdf')"
+            >
+              <img
+                src="http://123.63.97.202:81/scalableai/assets/images/Scalable-Hadoop.png"
+                alt=""
+                style="width: 100%"
+              />
+            </div>
+            <h5>
+              Scalable Cloud Services
+              <span class="break">Solution.</span>
+            </h5>
+          </div>
+        </div>
+        <!-- brochure 4-->
+        <div class="col-3">
+          <div class="brochure">
+            <div
+              class="blog-img"
+              style="cursor: pointer;"
+              onclick="selectBrochureLink('https://scalableai.com/scalable_brochure/Scalable_Data_Analytics_brochure.pdf')"
+            >
+              <img
+                src="http://123.63.97.202:81/scalableai/assets/images/Scalable-Hadoop.png"
+                alt=""
+                style="width: 100%"
+              />
+            </div>
+            <h5>
+              Scalable AI Solutions
+              <span class="break">Solution.</span>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form Modal -->
+    <div
+      class="modal fade"
+      id="contactModal"
+      tabindex="-1"
+      aria-labelledby="contactModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              class="contact-form"
+              action="/test"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <!-- Your form fields -->
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+
+              <label for="contactno">Contact No.</label>
+              <input type="tel" id="tel" name="contactno" required />
+
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required />
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+              <!-- Add this hidden input field inside the form -->
+              <input
+                type="hidden"
+                id="selectedBrochureLink"
+                name="selectedBrochureLink"
+                value=""
+              />
+
+              <label for="agree">I agree to the terms and conditions</label>
+              <input type="checkbox" id="agree" name="agree" required />
+
+              <input type="hidden" id="pageName" name="pageName" value="test" />
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="submitForm()"
+              >
+                Submit
+              </button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Add an event listener to each brochure image to open the contact form
+      const brochureImages = document.querySelectorAll(".blog-img img");
+      brochureImages.forEach((image) => {
+        image.addEventListener("click", () => {
+          // Get the parent brochure container
+          const brochureContainer = image.closest(".brochure");
+          // Get the selected brochure link from the image's data attribute
+          const selectedBrochureLink = image.dataset.brochureLink;
+
+          // Set the value of the hidden input field to the selected brochure link
+          const selectedBrochureLinkInput = document.getElementById(
+            "selectedBrochureLink"
+          );
+          selectedBrochureLinkInput.value = selectedBrochureLink;
+
+          // Open the contact form modal
+          const contactModal = document.getElementById("contactModal");
+          const bootstrapModal = new bootstrap.Modal(contactModal);
+          bootstrapModal.show();
+        });
+      });
+   
+      // Function to handle the allow button click
+      function handleAllowClick(requestId) {
+        const downloadLink = document.querySelector(
+          `[data-request-id="${requestId}"]`
+        );
+
+        downloadLink.href = `http://localhost:5000/server-test/confirm/${requestId}/allow`;
+      }
+
+      var selectedBrochureLink = ""; // Define a global variable to store the selected brochure link
+
+      function selectBrochureLink(link) {
+        selectedBrochureLink = link;
+
+        // Set the value of the hidden input field to the selected brochure link
+        document.getElementById("selectedBrochureLink").value =
+          selectedBrochureLink;
+        console.log("Selected Brochure Link:", selectedBrochureLink);
+      }
+
+      // Function to submit the form when the Submit button in the modal is clicked
+      function submitForm() {
+        // Get the selectedBrochureLink from the hidden input field
+        const selectedBrochureLink = document.getElementById(
+          "selectedBrochureLink"
+        ).value;
+
+        // Log the selected brochure link (for debugging purposes)
+        console.log("Selected Brochure Link:", selectedBrochureLink);
+
+        // Log the form data (for debugging purposes)
+        const form = document.querySelector(".contact-form");
+        const formData = new FormData(form);
+        console.log("Form Data:", formData);
+
+        // Append the selectedBrochureLink to the formData object
+        formData.append("selectedBrochureLink", selectedBrochureLink);
+
+        // Submit the form
+        form.submit();
+      }
+      // Add an event listener to the "Submit" button in the modal
+      const submitButton = document.querySelector(".contact-form .btn-primary");
+      submitButton.addEventListener("click", submitForm);
+      // Function to update the download link in the modal and display the confirmation message
+      function updateDownloadLink(requestId, decision) {
+        // Call the handleAllowClick function when "Allow" button is clicked
+        if (decision === "allow") {
+          handleAllowClick(requestId);
+        }
+      }
+    </script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
